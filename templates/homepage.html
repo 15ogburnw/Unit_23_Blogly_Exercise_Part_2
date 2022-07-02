@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block title %}Blogly{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="display-3 col-6 text-center">Blogly Recent Posts</div>
+    </div>
+
+    {% for post in posts%}
+
+    <div class="row justify-content-center">
+        <div class="card mt-3 col-6">
+            <div class="card-body">
+                <div class=" h2 mb-4 text-center">{{post.title}}</div>
+
+                <div class="row justify-content-center my-2">
+                    <p class="col-6 text-center font-weight-bold">{{post.content}}</p>
+                </div>
+                <div class="row justify-content-center">
+                    <i class="text-center">By <a href="/users/{{post.author.id}}">{{post.author.full_name}}</a> on {{post.date_posted}}</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    {% endfor %}
+</div>
+
+{% endblock %}
